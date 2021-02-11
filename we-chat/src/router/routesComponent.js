@@ -9,4 +9,4 @@ class RoutesComponent{
 }
 
 
-export  default  new RoutesComponent()
+export default new RoutesComponent()

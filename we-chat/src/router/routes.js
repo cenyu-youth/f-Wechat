@@ -2,15 +2,20 @@ import routesComponent from '@/router/routesComponent'
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: '/home',
+    name: 'home',
     component:routesComponent.home()
   },
   {
     path: '/about',
-    name: 'About',
+    name: 'about',
     component:routesComponent.about()
+  },
+
+  {
+    path:"/:pathMatch(.*)*",
+    redirect:{name:'home'}
   }
 ]
 
-export  default  routes
+export default routes
