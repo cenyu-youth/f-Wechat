@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 
-    <headerCom :title="state.title"></headerCom>
+    <headerCom :title="state.title[current]" v-if="current != 3" style="position: fixed;top: 0;left: 0;z-index: 99"></headerCom>
 
 
     <van-swipe
@@ -11,10 +11,18 @@
       @change="onChange"
       ref="swiperRe"
     >
-      <van-swipe-item style="background-color: #333333">1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
-      <van-swipe-item>3</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
+      <van-swipe-item style="height:calc(100% - 76px);padding-top: 76px;">
+        <lt></lt>
+      </van-swipe-item>
+      <van-swipe-item style="height:calc(100% - 76px);padding-top: 76px;">
+        <tong></tong>
+      </van-swipe-item>
+      <van-swipe-item style="height:calc(100% - 76px);padding-top: 76px;">
+        <fa></fa>
+      </van-swipe-item>
+      <van-swipe-item style="height:calc(100%);">
+        <mine></mine>
+      </van-swipe-item>
     </van-swipe>
 
 
@@ -40,7 +48,10 @@ import {reactive, ref, onMounted} from 'vue';
 
 //引入自定义组件
 import headerCom from '@/components/headerComponent/headerComponent'
-
+import lt from '@/components/lt/lt'
+import Tong from '@/components/tong/tong'
+import Fa from '@/components/fa/fa'
+import Mine from '@/components/mine/mine'
 
 
 export default {
@@ -48,7 +59,11 @@ export default {
   name:'Home',
 
   components: {
+    Mine,
+    Fa,
+    Tong,
     headerCom,
+    lt,
     [Swipe.name]: Swipe,
     [SwipeItem.name]: SwipeItem,
   },
@@ -56,7 +71,11 @@ export default {
 
   setup(){
     const state = reactive({
-      title:'微信'
+      title:[
+        '微信',
+        '通讯录',
+        '发现'
+      ]
     })
 
     const current=ref(0)
@@ -130,10 +149,8 @@ export default {
 
     .main-st{
       width:100%;
-      height:calc(100% - 76px - 61px);
+      height: calc(100% - 61px);
       background-color: #fff;
-      margin:0;
-      padding:0;
     }
 
 

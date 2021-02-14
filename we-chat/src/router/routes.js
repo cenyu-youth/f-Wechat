@@ -4,7 +4,10 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component:routesComponent.home()
+    component:routesComponent.home(),
+    children:[
+
+    ]
   },
   {
     path: '/about',
