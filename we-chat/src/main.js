@@ -5,6 +5,7 @@ import store from './store'
 
 import 'lib-flexible/flexible'
 
+
 createApp(App)
   .use(store)
   .use(router)

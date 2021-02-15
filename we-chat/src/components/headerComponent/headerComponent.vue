@@ -55,7 +55,7 @@
 
     setup (props, { emit }) {
       const state = reactive({
-        aa:''
+
       })
 
       const showPopover = ref(false);
